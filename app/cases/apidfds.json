@@ -1,0 +1,72 @@
+{
+    "head": {
+        "title": "Den Frie Digitale Skole - Custom Educational Platform",
+        "folder": "apidfds"
+    },
+
+    "body": {
+        "projecttitle": "Den Frie Digitale Skole",
+        "projectsubtitle": "A fullstack Python web app for online education",
+
+        "techstack": [
+            {"name": "Flask", "image": "carousel/flask.png"},
+            {"name": "Celery", "image": "carousel/celery.png"},
+            {"name": "Gunicorn", "image": "carousel/gunicorn.png"},
+            {"name": "Python", "image": "carousel/python.png"},
+            {"name": "Redis", "image": "carousel/redis.png"},
+            {"name": "PostgreSQL", "image": "carousel/PostgreSQL.png"}
+        ],
+
+        "history": [
+            {
+                "title": "Employed as a Teacher",
+                "date": "November 2024 - July 2025",
+                "body": "<p>I was hired as a teacher teaching programming. Half a year later I was approached by the administration with a request to help improve the school's digital tools.</p>"
+            },
+            {
+                "title": "Manual Administrative Burden",
+                "date": "July 2025  Project Start",
+                "body": "Every student is provided a unique schema that can change frequently, leading to a constant need for updates and adjustments. This manual process was not only time-consuming but also error-prone, impacting the overall efficiency of the school's operations. This was a significant pain point for both teachers and students. The initial challenge was to find a way to streamline these processes and reduce the administrative burden on educators."
+            }
+        ],
+
+        "cards": [
+            {
+                "title": "Substitute Management",
+                "shortdescription": "Real-time teacher substitution system",
+                "longdescription": "Efficiently manage teacher substitutions with automated scheduling and notifications.",
+                "category": "Core Feature",
+                "image": "images/sub.png",
+                "keyfeatures": [
+                    "Automated scheduling",
+                    "Real-time notifications",
+                    "Substitute availability tracking"
+                ]
+            },
+            {
+                "title": "Student Absence Tracking",
+                "shortdescription": "Comprehensive absence management",
+                "longdescription": "Track student absences with automated rules engine, parental notifications, and detailed reporting analytics.",
+                "category": "Core Feature",
+                "image": "images/absence.png",
+                "keyfeatures": [
+                    "Automated rules engine",
+                    "Parental notifications",
+                    "Detailed reporting analytics"
+                ]
+            },
+            {
+                "title": "Administrative Dashboard",
+                "shortdescription": "Centralized admin interface",
+                "longdescription": "Manage users, monitor system health, and access comprehensive analytics from a single dashboard.",
+                "category": "Admin Tool",
+                "image": "images/admin.png",
+                "keyfeatures": [
+                    "User management",
+                    "System health monitoring",
+                    "Comprehensive analytics"
+                ]
+            }
+        ]
+    }
+}

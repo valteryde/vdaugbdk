@@ -1,0 +1,52 @@
+.contour-canvas {
+    width:100%;
+    height:100%;
+    
+    /* High-quality CSS scaling as backup */
+    image-rendering: -webkit-optimize-contrast; /* Safari */
+    image-rendering: -moz-crisp-edges;          /* Firefox */
+    image-rendering: optimize-contrast;         /* Generic */
+    
+    /* Alternative for smoother scaling */
+    /* image-rendering: auto; */
+    /* image-rendering: smooth; */
+}
+.dual-canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+}
+
+.dual-canvas canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.canvas-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .render-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        image-rendering: auto; /* Smooth scaling */
+        
+        /* Try different CSS filters for various effects */
+        /* filter: blur(0.5px); /* Slight blur can hide pixelation */
+        /* filter: contrast(1.1) saturate(1.1); /* Enhance colors */
+    }
+    
+    .compute-canvas {
+        display: none; /* Hidden canvas for computation */
+    }

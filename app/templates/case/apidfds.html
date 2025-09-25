@@ -1,0 +1,330 @@
+{% extends "case/base.html" %}
+
+{% block title %}Case - Den Frie Digitale Skole{% endblock %}
+{% block head %}
+
+<style>
+    body {
+        background: black;
+    }
+</style>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='case.css') }}">
+
+
+{% endblock %}
+
+
+{% block body %}
+
+<section class="padded-section">
+
+    <!-- <h2 class="section-title">/case</h2> -->
+    <h1 class="project-title">{{ project.body.projecttitle }}</h1>
+    <p class="project-subtitle" style="margin-bottom:10px;">{{ project.body.projectsubtitle }}, <i>built with the technologies below.</i></p>
+
+    <div class="techstack-container">
+        {% for tech in project.body.techstack %}
+        <img src="/static/{{ project.head.folder }}/{{ tech.image }}">
+        {% endfor %}
+    </div>
+
+</section>
+
+<section class="history-section">
+    <div class="history-container">
+        <div class="history-timeline">
+            <div class="timeline-line"></div>
+
+            {% for item in project.body.history %}
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">{{ item.date }}</div>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.body|safe }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <div class="timeline-item">
+                <div class="timeline-dot">
+                    
+                    <div class="canvas-container dual-canvas-dot">
+                        <!-- Small canvas for computation (hidden) -->
+                        <canvas class="compute-canvas" width="1000" height="400"></canvas>
+                        
+                        <!-- Large canvas for display -->
+                        <canvas class="render-canvas" width="2000" height="800"></canvas>
+                    </div>
+
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Initial Challenge</div>
+                    <h3>Manual Administrative Burden</h3>
+                    <p>Every student is provided a unique schema that can change frequently, leading to a constant need for updates and adjustments. This manual process was not only time-consuming but also error-prone, impacting the overall efficiency of the school's operations. This was a significant pain point for both teachers and students. The initial challenge was to find a way to streamline these processes and reduce the administrative burden on educators.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">First Solution</div>
+                    <h3>Google Sheets Integration</h3>
+                    <p>I developed an application that <strong>automatically retrieved schedules from Google Sheets and displayed them live</strong> on each student's personal learning site. This breakthrough enabled real-time updates and significantly reduced manual work.</p>
+                    <p>This included the following features:</p>
+                    <ul class="timeline-features">
+                        <li><i class="fa fa-table" aria-hidden="true"></i> Schedule retrieval from Google Sheets</li>
+                        <li><i class="fa fa-sitemap" aria-hidden="true"></i> Inheritance of schedule for different classes</li>
+                        <li><i class="fa fa-calendar-alt" aria-hidden="true"></i> Period management for period-bound schemas</li>
+                        <li><i class="fa fa-desktop" aria-hidden="true"></i> Live display of schedules on student portals</li>
+                        <li><i class="fa fa-calendar-check" aria-hidden="true"></i> Teacher calendar synchronization through Google Calendar Invites</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Rapid Expansion</div>
+                    <h3>Feature Evolution</h3>
+                    <p>The project's scope quickly expanded as more needs emerged:</p>
+                    <ul class="timeline-features">
+                        <li><i class="fa fa-tasks" aria-hidden="true"></i> Homework assignment creation and tracking system</li>
+                        <li><i class="fa fa-file-alt" aria-hidden="true"></i> Document management for students and subjects</li>
+                        <li><i class="fa fa-user-check" aria-hidden="true"></i> Real-time teacher substitution management</li>
+                        <li><i class="fa fa-user-times" aria-hidden="true"></i> Comprehensive student absence tracking</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Ongoing Development</div>
+                    <h3>Continuous Improvement</h3>
+                    <p>The platform continues to evolve, with ongoing improvements and new features being added based on user feedback and changing educational needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="card-section">
+    <!-- <h2 class="archive-title">Project Screenshots</h2> -->
+    <h2 class="section-title" style="margin-bottom:30px;margin-top:20px;">/project features</h2>
+
+    <div class="archive-grid">
+        
+        {% for card in project.body.cards %}
+        <div class="archive-card" 
+            data-image="/static/{{ project.head.folder }}/{{ card.image }}" 
+            data-title="{{ card.title }}" 
+            data-description="{{ card.description }}"
+            data-keyfeatures="{{ card.keyfeatures | join(', ') }}"
+        >
+            <!-- Add a dual canvas -->
+            <div class="canvas-container card-dual-canvas">
+                <canvas class="compute-canvas" width="500" height="200"></canvas>
+                <canvas class="render-canvas" width="1000" height="400"></canvas>
+            </div>
+
+            <div class="card-content">
+                <div class="card-header">
+                    <!-- <span class="card-id">DFDS-001</span> -->
+                    <span class="card-classification">Core Feature</span>
+                </div>
+                <div class="card-preview">
+                    <img src="/static/{{ project.head.folder }}/{{ card.image }}" alt="Substitute Management Screenshot">
+                </div>
+                <div class="card-footer">
+                    <h3>Substitute Management</h3>
+                    <p>Real-time teacher substitution system</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Modal -->
+    <div id="archive-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close">×</span>
+                <div class="modal-info">
+                    <!-- <span id="modal-id" class="modal-id"></span> -->
+                    <span id="modal-classification" class="modal-classification"></span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modal-image" src="" alt="Screenshot">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description"></p>
+                    <div class="modal-meta">
+                        <span class="meta-item">Category: <span id="modal-security"></span></span>
+
+                        <!-- Key features -->
+                        <ul class="modal-keyfeatures"></ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    const allCardDualCanvas = document.querySelectorAll('.card-dual-canvas');
+
+    var c = 0
+
+    var fullWindow = [-5, 5, -10, 10]
+    var canvasLength = allCardDualCanvas.length;
+
+    allCardDualCanvas.forEach(dualCanvas=> {
+        c++
+
+        var window = [
+            fullWindow[0] * c/canvasLength,
+            fullWindow[1] * (c+1)/canvasLength,
+            fullWindow[2] * c/canvasLength,
+            fullWindow[3] * (c+1)/canvasLength
+        ]
+
+        drawDualCanvas(dualCanvas, f, window, zValues, -1, 1, colorgradient_dark_cream); 
+    });
+
+</script>
+
+
+<script>
+    
+        const carousel = document.getElementById('carousel-techstack');
+        let currentIndex = 0;
+        var track = carousel.querySelector('.carousel-track');
+        var items = Array.from(track.children);
+        var gap = 20;
+        
+        function updateCarousel() {
+            
+            var itemWidth = items[0].getBoundingClientRect().width;
+            
+            // Get first item and move it to the back
+            var firstItem = items.shift();
+            firstItem.style.left = `${itemWidth}px`;
+            firstItem.style.opacity = 0
+            items.push(firstItem);
+            items.forEach((item, index) => {
+                item.style.left = `${index * gap + index * itemWidth - itemWidth}px`;
+                
+                if (item != firstItem) {
+                    item.style.opacity = 1;
+                }
+            });
+        }
+        
+        items[0].addEventListener('transitionend', updateCarousel);
+        
+        setTimeout(() => {
+            updateCarousel();
+        }, 250);
+        updateCarousel()
+        
+        // Update the carousel track height based on the height of the tallest item
+        function updateCarouselHeight() {
+            var maxHeight = 0;
+            items.forEach(item => {
+                var itemHeight = item.getBoundingClientRect().height;
+                if (itemHeight > maxHeight) {
+                    maxHeight = itemHeight;
+                }
+            });
+        track.style.height = `${maxHeight}px`;
+    }
+    updateCarouselHeight();
+
+</script>
+<script>
+
+
+    // Archive Modal Functionality
+    const modal = document.getElementById('archive-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalId = document.getElementById('modal-id');
+    const modalClassification = document.getElementById('modal-classification');
+    const modalSecurity = document.getElementById('modal-security');
+    const modalClose = document.querySelector('.modal-close');
+
+    // Add click event to all archive cards
+    document.querySelectorAll('.archive-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const image = this.dataset.image;
+            const title = this.dataset.title;
+            const description = this.dataset.description;
+            // const id = this.querySelector('.card-id').textContent;
+            const classification = this.querySelector('.card-classification').textContent;
+
+            modalImage.src = image;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalClassification.textContent = classification;
+            modalSecurity.textContent = classification;
+
+            // Add keyfeatures
+            const keyFeatures = this.dataset.keyfeatures.split(',');
+            const keyFeaturesList = modal.querySelector('.modal-keyfeatures');
+            keyFeaturesList.innerHTML = '';
+            keyFeatures.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature.trim();
+                keyFeaturesList.appendChild(li);
+            });
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close modal when clicking the close button
+    modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    // Close modal when clicking outside the modal content
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+</script>
+
+
+<script>
+
+    var dualCanvas = document.querySelectorAll('.dual-canvas-dot');
+
+    dualCanvas.forEach(dualCanvas => {
+        drawDualCanvas(dualCanvas, f, [-5, 5, -10, 10], zValues, -1, 1, colorgradient_dark_cream);
+    });
+
+</script>
+
+
+{% endblock %}
