@@ -95,24 +95,19 @@
 
 .timeline-dot {
     position: absolute;
-    left: -30px;
+    left: -50px;
     top: 18px;
-    width: 16px;
-    height: 16px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: #fff;
-    border: 3px solid #333;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    /* background: #fff; */
+    /* border: 3px solid #333; */
+    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); */
     transition: all 0.3s ease;
 }
 
-.timeline-item:hover .timeline-dot {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-}
-
 .timeline-content {
-    padding: 20px 0;
+    padding: 30px 10px;
 }
 
 .timeline-date {
@@ -231,12 +226,6 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.archive-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    border-color: #555555;
-}
-
 .card-content {
     position: relative;
     padding: 0;
@@ -281,10 +270,6 @@
     object-fit: cover;
     display: block;
     transition: transform 0.3s ease;
-}
-
-.archive-card:hover .card-preview img {
-    transform: scale(1.02);
 }
 
 .card-footer {

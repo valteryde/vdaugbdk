@@ -16,19 +16,63 @@
             {"name": "Redis", "image": "carousel/redis.png"},
             {"name": "PostgreSQL", "image": "carousel/PostgreSQL.png"}
         ],
+        "techstackdescription": "The platform is built using Flask for the web framework, Celery for background task processing, Gunicorn as the WSGI server, Python as the programming language, Redis for caching and message brokering, and PostgreSQL as the database.",
 
         "history": [
             {
                 "title": "Employed as a Teacher",
                 "date": "November 2024 - July 2025",
-                "body": "<p>I was hired as a teacher teaching programming. Half a year later I was approached by the administration with a request to help improve the school's digital tools.</p>"
+                "description": "I was hired as a teacher teaching programming. Half a year later I was approached by the administration with a request to help improve the school's digital tools"
             },
             {
                 "title": "Manual Administrative Burden",
                 "date": "July 2025  Project Start",
-                "body": "Every student is provided a unique schema that can change frequently, leading to a constant need for updates and adjustments. This manual process was not only time-consuming but also error-prone, impacting the overall efficiency of the school's operations. This was a significant pain point for both teachers and students. The initial challenge was to find a way to streamline these processes and reduce the administrative burden on educators."
+                "description": "Every student is provided a unique schema that can change frequently, leading to a constant need for updates and adjustments. This manual process was not only time-consuming but also error-prone, impacting the overall efficiency of the school's operations. This was a significant pain point for both teachers and students. The initial challenge was to find a way to streamline these processes and reduce the administrative burden on educators."
+            },
+            {
+                "title":  "Google Sheets Integration",
+                "date": "July 2025 - December 2025",
+                "description": "I developed an application that <strong>automatically retrieved schedules from Google Sheets and displayed them live</strong> on each student's personal learning site. This enabled real-time updates and significantly reduced manual work.",
+                "features": [
+                    {"icon": "fa-table", "text": "Schedule retrieval from Google Sheets"},
+                    {"icon": "fa-sitemap", "text": "Inheritance of schedule for different classes"},
+                    {"icon": "fa-calendar-alt", "text": "Period management for period-bound schemas"},
+                    {"icon": "fa-bell", "text": "Real-time updates and notifications to teachers, students and parents"},
+                    {"icon": "fa-mobile-alt", "text": "Mobile-friendly design for accessibility"},
+                    {"icon": "fa-desktop", "text": "Live display of schedules on student portals"},
+                    {"icon": "fa-cogs", "text": "Automated updates reducing manual workload"},
+                    {"icon": "fa-calendar", "text": "Teacher calendar synchronization through Google Calendar Invites"}
+                ]
+			},
+            {
+                "title": "Expansion of Features",
+                "date": "January 2026 - June 2026",
+                "description": "Building on the success of the initial scheduling system, I expanded the platform to include additional features such as substitute management, student absence tracking, and a comprehensive administrative dashboard. Each feature was designed to address specific pain points identified during the initial phase of the project.",
+                "features": [
+                    {"icon": "fa-user-friends", "text": "Substitute management system for real-time teacher substitutions"},
+                    {"icon": "fa-user-times", "text": "Student absence tracking with automated rules engine"},
+                    {"icon": "fa-chart-bar", "text": "Detailed reporting and analytics for student attendance"},
+                    {"icon": "fa-users-cog", "text": "Administrative dashboard for user management and system monitoring"},
+                    {"icon": "fa-file-alt", "text": "Document management for students and subjects"},
+                    {"icon": "fa-comments", "text": "Communication tools for teachers, students, and parents"},
+                    {"icon": "fa-shield-alt", "text": "Role-based access control for enhanced security"},
+                    {"icon": "fa-cloud", "text": "Cloud-based deployment for scalability and reliability"},
+                    {"icon": "fa-tasks", "text": "Homework assignment creation and tracking system"}
+                ]
+            },
+            {
+                "title": "Deployment and Adoption",
+                "date": "July 2026 - Present",
+                "description": "The platform was successfully deployed across the school, leading to a significant reduction in administrative workload and improved communication between teachers, students, and parents. The adoption of the platform has been met with positive feedback, highlighting its ease of use and effectiveness in streamlining school operations."
+            },
+
+            {
+                "title": "Continuous Improvement",
+                "date": "Ongoing",
+                "description": "The platform continues to evolve, with ongoing improvements and new features being added based on user feedback and changing educational needs."
             }
-        ],
+
+		],
 
         "cards": [
             {
