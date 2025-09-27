@@ -1,0 +1,95 @@
+<section id="projects">
+
+    <h2 class="section-title">/my digital projects</h2>
+
+    <div class="projects-wrapper">
+
+        <div class="projects-column">
+
+        <div class="project">
+
+            <code>
+                <img class="project-logo" src="{{ url_for('static', filename='kaxe/logo.png') }}" alt="Kaxe logo">
+                <h2 class="project-title">Kaxe <a class="inline-title-link" href="https://kaxe.readthedocs.io/" target="_blank"> <i class="fa-solid fa-book"></i> Visit the docs</a> </h2>
+                <p>Beautiful graphs out of the box with beautiful <i>simple</i> code</p>
+                <p>Ready for your scientific papers; no hassle, just results.</p>
+            </code>
+
+<pre>
+<code class="language-python">
+import kaxe
+plt = kaxe.Plot()
+plt.add(kaxe.Function(lambda x: x**2 - 2))
+plt.show()
+</code>
+</pre> 
+
+            <div class="project-images">
+
+                <img src="{{ url_for('static', filename='kaxe/images/boxed.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
+                <img src="{{ url_for('static', filename='kaxe/images/light.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
+                <img src="{{ url_for('static', filename='kaxe/images/noise.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
+                <img src="{{ url_for('static', filename='kaxe/images/polar.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
+
+            </div>
+
+        </div>
+
+        <div class="project">
+
+            <code>
+                <!-- <img class="project-logo" src="{{ url_for('static', filename='vdaugb/logo.png') }}" alt="vdaugb.dk logo"> -->
+                <h2 class="project-title">vdaugb.dk <a class="inline-title-link" href="https://vdaugb.dk" target="_blank"> <i class="fa-solid fa-globe"></i> Visit the site</a> </h2>
+                <p>This site! Built with Flask and vanilla HTML/CSS/JS</p>
+                <small>(May be a bit much to use flask for a <i>almost</i> static site)</small>
+            </code>
+
+        </div>
+
+        </div>
+
+        <div class="projects-column">
+
+        <div class="project">
+
+            <code>
+                <img class="project-logo" src="{{ url_for('static', filename='apidfds/logo.png') }}" alt="DFDS logo">
+                <h2 class="project-title">Den Frie Digitale Skole <a class="inline-title-link" href="/case/apidfds"> <i class="fa-solid fa-magnifying-glass"></i> Visit the case</a> </h2>
+                <p>Fullstack administrative platform for digital education</p>
+                <p>Build with flask, celery and more</p>
+            </code>
+
+            <br>
+
+            <div class="project-images">
+                <img src="{{ url_for('static', filename='apidfds/images/admin.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
+                <img src="{{ url_for('static', filename='apidfds/images/absence.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
+                <img src="{{ url_for('static', filename='apidfds/images/sub.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
+            </div>
+
+        </div>
+        
+
+        <div class="project">
+
+            <code>
+                <img class="project-logo" src="{{ url_for('static', filename='fondi/logo.png') }}" alt="fondi logo" style="width:200px;">
+                <h2 class="project-title">fondi <a class="inline-title-link" href="https://github.com/valteryde/fondi" target="_blank"> <i class="fa-solid fa-code"></i> Visit the code</a> </h2>
+                <p>Helper tool for rendering LaTeX math equations written purely in Python</p>
+                <p>Spinning up a full latex process is redundant for simple equations. Fondi fixes this by providing a ultra <i>lightweight</i> alternative.</p>
+            </code>
+
+<pre>
+<code class="language-python">
+import fondi
+text = fondi.MathText("f(x) = x^2 - 2")
+text.image.save("equation.png")
+</code>
+</pre> 
+        </div>
+
+        </div>
+
+    </div>
+
+</section>

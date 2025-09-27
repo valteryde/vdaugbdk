@@ -1,6 +1,8 @@
-{% extends "case/base.html" %} {% block title %}Case - Den Frie Digitale Skole{% endblock %} {%
-block head %}
+{% extends "site/base.html" %}
 
+{% block title %}Case - {{ project.body.projecttitle }}{% endblock %} 
+
+{% block head %}
 <style>
 	body {
 		background: black;
@@ -17,7 +19,7 @@ block head %}
 	<!-- <h2 class="section-title">/case</h2> -->
 	<h1 class="project-title">{{ project.body.projecttitle }}</h1>
 	<p class="project-subtitle" style="margin-bottom: 10px">
-		{{ project.body.projectsubtitle }}, <i>built with the technologies below.</i>
+		{{ project.body.projectsubtitle|safe }}
 	</p>
 
      <div class="techstack-container">
@@ -66,7 +68,7 @@ block head %}
 
 <section id="card-section">
 	<!-- <h2 class="archive-title">Project Screenshots</h2> -->
-	<h2 class="section-title" style="margin-bottom: 30px; margin-top: 20px">/project features</h2>
+	<h2 class="section-title" style="margin-bottom: 30px; margin-top: 20px">/{{ project.body.cardstitle }}</h2>
 
 	<div class="archive-grid">
 		{% for card in project.body.cards %}
@@ -74,7 +76,7 @@ block head %}
 			class="archive-card"
 			data-image="/static/{{ project.head.folder }}/{{ card.image }}"
 			data-title="{{ card.title }}"
-			data-description="{{ card.description }}"
+			data-description="{{ card.longdescription }}"
 			data-keyfeatures="{{ card.keyfeatures | join(', ') }}"
 		>
 			<!-- Add a dual canvas -->
@@ -86,17 +88,16 @@ block head %}
 			<div class="card-content">
 				<div class="card-header">
 					<!-- <span class="card-id">DFDS-001</span> -->
-					<span class="card-classification">Core Feature</span>
+					<span class="card-classification">{{ card.category }}</span>
 				</div>
 				<div class="card-preview">
 					<img
 						src="/static/{{ project.head.folder }}/{{ card.image }}"
-						alt="Substitute Management Screenshot"
 					/>
 				</div>
 				<div class="card-footer">
-					<h3>Substitute Management</h3>
-					<p>Real-time teacher substitution system</p>
+					<h3>{{ card.title }}</h3>
+					<p>{{ card.shortdescription }}</p>
 				</div>
 			</div>
 		</div>
@@ -262,7 +263,7 @@ block head %}
 			// [-0.5287341651581493, 0.1],
 			[-0.894512332237768, 0.1],
 		];
-		drawDualCanvas(dualCanvas, g, [-2, 2, -2, 2], zValues, -2.5, 2.5, colorgradient_kaxe);
+		drawDualCanvas(dualCanvas, g, [-2, 2, -2, 2], zValues, -2.5, 2.5, {{  project.head.colors|tojson }} );
 	});
 </script>
 

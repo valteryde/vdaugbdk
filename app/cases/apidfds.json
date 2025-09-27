@@ -1,12 +1,20 @@
 {
     "head": {
         "title": "Den Frie Digitale Skole - Custom Educational Platform",
-        "folder": "apidfds"
+        "folder": "apidfds",
+        "colors": [
+            [175, 227, 192],
+            [144, 194, 144],
+            [255, 81, 84],
+            [145, 166, 255],
+            [250, 255, 127],
+            [237, 125, 58]
+        ]
     },
 
     "body": {
         "projecttitle": "Den Frie Digitale Skole",
-        "projectsubtitle": "A fullstack Python web app for online education",
+        "projectsubtitle": "A fullstack Python web app for online education, <i>built with the technologies below.</i>",
 
         "techstack": [
             {"name": "Flask", "image": "carousel/flask.png"},
@@ -16,6 +24,7 @@
             {"name": "Redis", "image": "carousel/redis.png"},
             {"name": "PostgreSQL", "image": "carousel/PostgreSQL.png"}
         ],
+
         "techstackdescription": "The platform is built using Flask for the web framework, Celery for background task processing, Gunicorn as the WSGI server, Python as the programming language, Redis for caching and message brokering, and PostgreSQL as the database.",
 
         "history": [
@@ -31,7 +40,7 @@
             },
             {
                 "title":  "Google Sheets Integration",
-                "date": "July 2025 - December 2025",
+                "date": "July 2025 - August 2025",
                 "description": "I developed an application that <strong>automatically retrieved schedules from Google Sheets and displayed them live</strong> on each student's personal learning site. This enabled real-time updates and significantly reduced manual work.",
                 "features": [
                     {"icon": "fa-table", "text": "Schedule retrieval from Google Sheets"},
@@ -46,7 +55,7 @@
 			},
             {
                 "title": "Expansion of Features",
-                "date": "January 2026 - June 2026",
+                "date": "August 2025 - September 2025",
                 "description": "Building on the success of the initial scheduling system, I expanded the platform to include additional features such as substitute management, student absence tracking, and a comprehensive administrative dashboard. Each feature was designed to address specific pain points identified during the initial phase of the project.",
                 "features": [
                     {"icon": "fa-user-friends", "text": "Substitute management system for real-time teacher substitutions"},
@@ -62,8 +71,8 @@
             },
             {
                 "title": "Deployment and Adoption",
-                "date": "July 2026 - Present",
-                "description": "The platform was successfully deployed across the school, leading to a significant reduction in administrative workload and improved communication between teachers, students, and parents. The adoption of the platform has been met with positive feedback, highlighting its ease of use and effectiveness in streamlining school operations."
+                "date": "August 2025 - Present",
+                "description": "The platform was successfully deployed across the school, leading to a significant reduction in administrative workload. The adoption of the platform has been met with positive feedback, highlighting its ease of use and effectiveness in streamlining school operations."
             },
 
             {
@@ -73,6 +82,8 @@
             }
 
 		],
+
+        "cardstitle": "project features",
 
         "cards": [
             {

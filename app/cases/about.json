@@ -1,0 +1,131 @@
+{
+    "head": {
+        "title": "Valter Daugberg - About Me",
+        "folder": "",
+        "colors": [
+            [255, 255, 255],
+            [0, 128, 255],
+            [0, 255, 255],
+            [0, 255, 128],
+            [0, 255, 0],
+            [128, 255, 0],
+            [255, 255, 0],
+            [255, 128, 0],
+            [255, 0, 0]
+        ]
+    },
+
+    "body": {
+        "projecttitle": "Valter Daugberg",
+        "projectsubtitle": "My background, experience, and skills.<i> I have worked at the following places:</i>",
+
+        "techstack": [
+            {"name": "AAU", "image": "work/aau_logo.png"},
+            {"name": "Den frie digitale skole", "image": "apidfds/logo.png"},
+            {"name": "Toptutor", "image": "work/toptutor.svg"},
+            {"name": "GoTutor", "image": "work/gotutor.png"}
+        ],
+        "techstackdescription": "",
+
+        "history": [
+            {
+                "title": "Hobby programming",
+                "date": "2019",
+                "description": "I started programming back in 2019 as a hobby.",
+                "features": [
+                    {"icon": "fa-brands fa-python", "text": "Python"},
+                    {"icon": "fa-brands fa-html5", "text": "HTML/CSS"},
+                    {"icon": "fa-brands fa-js", "text": "JavaScript"},
+                    {"icon": "fa-database", "text": "Databases (SQL/NoSQL)"}
+                ]
+            },
+            {
+                "title": "Bachelor of Science (BSc) in Engineering (Mechanical Engineering)",
+                "date": "September 2022 - June 2025",
+                "description": "<span style='display:flex;align-items:center;'> <span> While studying I also started developing Kaxe </span>  <img src='/static/kaxe/logo.png' style='width:20px;height:20px;margin-left:5px;' alt='Kaxe Logo' />. </span>"
+            },
+            {
+                "title": "Tutor at AAU",
+                "date": "September 2023, September 2024, September 2025",
+                "description": "I have been a <i>tutor</i> for first-year students at Aalborg University (AAU). Here i held activities and helped new students get started with their studies. In september 2023 i was a volunteer tutor, and in september 2024 i was responsible for a part of the program and 2025 I was responsible for the whole program for the institute of Materials and Production.",
+                "features": [
+                    {"icon": "fa-people-group", "text": "Helping over 150 new students both as a volunteer and leading the program"},
+                    {"icon": "fa-users", "text": "Led and coordinated a team of 40 tutors"}
+                ]
+            },
+            {
+                "title": "Private tutor/mentor at GoTutor and Toptutor",
+                "date": "October 2022 - May 2025",
+                "description": "I have been a private tutor/mentor at GoTutor and Toptutor, teaching subjects such as mathematics, physics, and programming to high school students with over 500 hours of tutoring experience.",
+                "features": [
+                    {"icon": "fa-square-root-variable", "text": "Mathematics (DK Gym A-level)"},
+                    {"icon": "fa-atom", "text": "Physics (DK Gym A-level)"},
+                    {"icon": "fa-computer", "text": "Programming (Python, JavaScript, html/css, etc.)"}
+                ]
+            },
+            {
+                "title": "Teaching at Den frie digitale skole",
+                "date": "November 2024 - Present",
+                "description": "I teach programming and mathematics to students in 5th to 10th grade."
+            },
+            {
+                "title": "Software Developer at Den frie digitale skole",
+                "date": "June 2025 - Present",
+                "description": "I worked on developing the school's internal systems, including a scheduling system for teachers and students. See the case <a href='/case/apidfds'>here</a>."
+            },
+            {
+                "title": "Studying my Master in Mechanical Engineering (electro-mechanical system design)",
+                "date": "September 2025 - Present",
+                "description": "Currently studying my Master in Mechanical Engineering with a specialization in electro-mechanical system design at Aalborg University (AAU)."
+            }
+
+		],
+
+        "cardstitle": "Certificates & References",
+
+        "cards": [
+            {
+                "title": "Reference from GoTutor",
+                "shortdescription": "",
+                "longdescription": "",
+                "category": "Mentor",
+                "image": "diploma/GoTutor.png",
+                "keyfeatures": [
+                    "Automated scheduling",
+                    "Real-time notifications",
+                    "Substitute availability tracking"
+                ]
+            },
+            {
+                "title": "Diploma for tutor at AAU 2025",
+                "shortdescription": "",
+                "longdescription": "",
+                "category": "AAU Tutor",
+                "image": "diploma/Diplom_2025.png",
+                "keyfeatures": [
+                    "Responsible for the whole program and leading a team of tutors"
+                ]
+            },
+            {
+                "title": "Diploma for tutor at AAU 2024",
+                "shortdescription": "",
+                "longdescription": "",
+                "category": "AAU Tutor",
+                "image": "diploma/Diplom_2024.png",
+                "keyfeatures": [
+                    "Responsible for a part of the program and leading a team of tutors"
+                ]
+            },
+            {
+                "title": "Diploma for tutor at AAU 2023",
+                "shortdescription": "",
+                "longdescription": "",
+                "category": "AAU Tutor",
+                "image": "diploma/Diplom_2023.png",
+                "keyfeatures": [
+                    "Helping new students both as a volunteer tutor"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{% extends "site/base.html" %}
+
+{% block title %}404{% endblock %} 
+
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+{% endblock %} 
+
+{% block content %}
+
+<h1 class="m-left" style="margin-top:50px;">My projects</h1>
+
+{% include 'index/projects.html' %}
+
+{% endblock %}

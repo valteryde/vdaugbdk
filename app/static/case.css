@@ -168,14 +168,16 @@
 }
 
 @media (max-width: 768px) {
+    .history-section {
+        padding: 20px 10px;
+        margin-left:20px;
+        width: auto;
+    }
+
     .history-timeline {
-        padding-left: 30px;
+        margin-left: 30px;
     }
-    
-    .timeline-dot {
-        left: -23px;
-    }
-    
+        
     .timeline-content h3 {
         font-size: 1.25rem;
     }
@@ -503,4 +505,10 @@
 
 .techstack-container img {
     height:30px;margin-right:20px;
+}
+
+.history-section a {
+    color: #1e90ff;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
