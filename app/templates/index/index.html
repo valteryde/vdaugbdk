@@ -86,118 +86,64 @@
     
     <div class="hero-subtitle"  id="hero-subtitle-upper" onclick="window.open('https://github.com/valteryde', '_blank')"> <i class="fa-brands fa-github-alt"></i><span style="height:min-content;margin-top:-2px">valter daugberg</span></div>
 
+    <div class="scroll-arrow" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+
 </div>
 
 {% include 'index/projects.html' %}
 
 <section id="about-me">
 
-<div class="dual-canvas" id="dual-canvas-about-me">
-    <!-- Small canvas for computation (hidden) -->
-    <canvas class="compute-canvas" width="1000" height="400"></canvas>
-    
-    <!-- Large canvas for display -->
-    <canvas class="render-canvas" width="2000" height="800"></canvas>
-</div>
-
-<script>
-    
-    var g = (x,y) => {
-        const r = Math.hypot(x, y);
-        // a smooth gaussian bump centered at 0
-        const gauss = Math.exp(-0.75 * (x*x + y*y));
-        // concentric ripples that get slightly tighter away from center
-        const concentric = 0.5 * (1 + Math.cos(3.0 * r + 0.5 * Math.sin(2.0*r)));
-        // fine cross ripples for texture
-        const cross = 0.18 * Math.sin(6.0 * x) * Math.sin(6.0 * y);
-        // combine for a 3D look
-        return gauss * concentric + cross;
-    }
-
-    drawDualCanvas(
-        document.querySelector('#dual-canvas-about-me'), 
-        g, 
-        [-1, 0, -1, 0.5], 
-        [[0, Infinity]], 
-        -4, 3,
-        colorgradient_dark_cream
-    );
-
-</script>
-
 <h2 class="section-title" style="padding-top:30px;">/about me</h2>
 
 <div class="about-me-content">
-    <div class="greeting">
-        <h3 class="name">Valter Daugberg</h3>
-        <p class="subtitle">Software Developer & Engineering Student</p>
-    </div>
-    
-    <div class="bio-section">
-        <div class="bio-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Aalborg, Denmark</span>
+    <div class="about-me-card">
+        <div class="about-me-header">
+            <h3 class="name">Valter Daugberg</h3>
+            <p class="tagline">Software Developer & Engineering Student</p>
+            <p class="location"><i class="fa-solid fa-location-dot"></i> Aalborg, Denmark</p>
         </div>
         
-        <div class="bio-item">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Bachelor in Mechanical Engineering</span>
-        </div>
-        
-        <div class="bio-item">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span><strong>Studying</strong> master in electro-mechanical engineering</span>
-        </div>
-        
-        <div class="bio-item">
-            <i class="fa-solid fa-code"></i>
-            <span>Software Developer</span>
-        </div>
-    </div>
-    
-    <div class="skills-section">
-        <div class="skill-category">
-            <span class="skill-label">Languages:</span>
-            <span class="small-screen-hide">Python(&lt;3), C, MATLAB, HTML/CSS/JS, SQL, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span></p></span>
-            <div class="large-screen-hide skill-list">
-                <span>Python(&lt;3)</span>
-                <span>C</span>
-                <span>MATLAB</span>
-                <span>HTML/CSS/JS</span>
-                <span>SQL</span>
-                <span><span class="latex">L<sup>a</sup>T<sub>e</sub>X</span></span>
+        <div class="about-me-body">
+            <div class="about-me-details">
+                <div class="detail-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>BSc Mechanical Engineering</span>
+                </div>
+                <div class="detail-item highlight">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>MSc Electro-Mechanical Engineering</span>
+                    <span class="current-badge">current</span>
+                </div>
+            </div>
+            
+            <div class="about-me-skills">
+                <div class="skill-row">
+                    <span class="skill-label">Languages</span>
+                    <span class="skill-list">Python, C, MATLAB, JS, SQL, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span></span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-label">Tools</span>
+                    <span class="skill-list">Flask, Git, Linux, PostgreSQL, Redis</span>
+                </div>
             </div>
         </div>
         
-        <div class="skill-category">
-            <span class="skill-label">Tools & Frameworks:</span>
-            <span class="small-screen-hide">Flask, Git, Linux, PostgreSQL, Redis, Celery</span>
-            <div class="large-screen-hide skill-list">
-                <span>Flask</span>
-                <span>Git</span>
-                <span>Linux</span>
-                <span>PostgreSQL</span>
-                <span>Redis</span>
-                <span>Celery</span>
+        <div class="about-me-footer">
+            <a href="/about" class="learn-more-btn">
+                Learn more <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            
+            <div class="social-links">
+                <a href="https://github.com/valteryde" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/vdaugb/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:valteryde@hotmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </div>
-
-    <!-- Learn more about me -->
-    <div class="learn-more">
-        <h3>Learn more about me</h3>
-        <a href="/about" class="btn btn-primary">Learn more about my background, experience, and <i>skills</i> <i class="fa fa-external-link" style="margin-left:10px;" aria-hidden="true"></i></a>
-    </div>
-
 </div>
-
-<br>
-
-    <div class="icon-container">
-        <a href="https://github.com/valteryde" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/vdaugb/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="mailto:valteryde@hotmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-    </div>
 
 </section>
 

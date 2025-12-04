@@ -24,6 +24,32 @@
     background-clip: text;
 }
 
+.scroll-arrow {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5em;
+    animation: bounce 3s ease-in-out infinite;
+    transition: color 0.3s ease;
+}
+
+.scroll-arrow:hover {
+    color: rgba(250, 212, 136, 0.9);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(8px);
+    }
+}
+
 #hero-title-container {
     position: absolute;
     width: fit-content;
@@ -41,7 +67,7 @@
     position: relative;
     inset:0;
     width: 100vw;
-    height:40vh;
+    height:100vh;
     min-height: 300px;
 }
 
@@ -185,117 +211,173 @@
     gap: 20px;
 }
 
-
-
-
-
-.icon-container {
-    top: 50%;
-    transform: translateY(-50%);
-    position: absolute;
-    right: 50px;
-    display:flex;
-    gap: 10px;
-    flex-direction: column;
-}
-
-
-.icon-container a {
-    color: white;
-    opacity: .9;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 1.5em;
-    transition: color 0.3s;
-}
-
-.icon-container a:hover {
-    color: #fdcb60;
-    opacity: 1;
-}
-
 .large-screen-hide {
     display: none;
 }
 
 /* About Me Section Styles */
+#about-me {
+    padding: 40px 0 60px;
+}
+
 .about-me-content {
-    position: relative;
-    z-index: 2;
     padding: 20px 40px;
-    opacity: 0.85;
-    font-family: "Funnel Display", sans-serif;
 }
 
-.greeting {
-    margin-bottom: 25px;
+.about-me-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 50px;
+    align-items: center;
+    padding: 30px 40px;
+    background: linear-gradient(135deg, rgba(253, 203, 96, 0.03) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
 }
 
-.intro {
-    font-size: 1.1em;
-    opacity: 0.8;
-    display: block;
-    margin-bottom: 5px;
+.about-me-header {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding-right: 50px;
 }
 
-.name {
+.about-me-header .name {
     font-family: "Michroma", sans-serif;
-    font-size: 1.8em;
-    margin: 0;
+    font-size: 1.5em;
+    margin: 0 0 6px;
     color: #fdcb60;
     letter-spacing: 0.02em;
 }
 
-.bio-section {
-    margin-bottom: 30px;
+.tagline {
+    font-size: 0.95em;
+    opacity: 0.6;
+    margin: 0 0 8px;
 }
 
-.bio-item {
+.location {
+    font-size: 0.85em;
+    opacity: 0.4;
+    margin: 0;
+}
+
+.location i {
+    color: #fdcb60;
+    margin-right: 6px;
+}
+
+.about-me-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-me-details {
+    display: flex;
+    gap: 25px;
+}
+
+.detail-item {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
-    font-size: 1em;
-    line-height: 1.4;
-}
-
-.bio-item i {
-    min-width: 20px;
-    margin-right: 12px;
-    color: #fdcb60;
+    gap: 10px;
     opacity: 0.8;
+    font-size: 0.9em;
 }
 
-.skills-section {
-    margin-top: 20px;
-}
-
-.skill-category {
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-
-.skill-label {
-    font-weight: 600;
+.detail-item i {
     color: #fdcb60;
-    display: inline-block;
-    /* min-width: 140px; */
-    opacity: 0.9;
+    opacity: 0.6;
 }
 
-.skill-list {
-    display: none;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
+.detail-item.highlight {
+    opacity: 1;
 }
 
-.skill-list span {
-    background: rgba(253, 203, 96, 0.1);
-    border: 1px solid rgba(253, 203, 96, 0.3);
-    padding: 4px 8px;
-    border-radius: 12px;
+.current-badge {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(253, 203, 96, 0.15);
+    color: #fdcb60;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.about-me-skills {
+    display: flex;
+    gap: 30px;
+}
+
+.skill-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
     font-size: 0.85em;
-    display: inline-block;
+}
+
+.skill-row .skill-label {
+    color: #fdcb60;
+    opacity: 0.7;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.skill-row .skill-list {
+    opacity: 0.6;
+}
+
+.about-me-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 50px;
+}
+
+.learn-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(253, 203, 96, 0.1);
+    border: 1px solid rgba(253, 203, 96, 0.25);
+    border-radius: 8px;
+    color: #fdcb60;
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background: rgba(253, 203, 96, 0.2);
+    border-color: rgba(253, 203, 96, 0.4);
+}
+
+.learn-more-btn i {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.learn-more-btn:hover i {
+    transform: translateX(3px);
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #fdcb60;
 }
 
 /* Mobile Styles */
@@ -310,21 +392,6 @@
         margin-left: 16px;
         font-size: 0.8em;
         margin-top: 30px;
-    }
-    
-    .icon-container {
-        top: 10px;
-        transform: translate(0, 0);
-        right: 10px;
-        display:flex;
-        flex-direction: row;
-        gap: 12px;
-        height:fit-content;
-    }
-    
-    .icon-container a {
-        font-size: 1.5em;
-        margin: 0 5px;
     }
     
     .project {
@@ -377,31 +444,46 @@
         display: inline;
     }
 
-    .skill-list {
-        display: flex !important;
-    }
-
+    /* About me mobile styles */
     .about-me-content {
-        padding: 15px 20px;
+        padding: 10px 15px;
     }
 
-    .name {
-        font-size: 1.4em;
+    .about-me-card {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 25px 20px;
     }
 
-    .bio-item {
-        font-size: 0.9em;
-        margin-bottom: 10px;
+    .about-me-header {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-right: 0;
+        padding-bottom: 25px;
     }
 
-    .skill-category {
-        margin-bottom: 20px;
+    .about-me-header .name {
+        font-size: 1.3em;
     }
 
-    .skill-label {
-        display: block;
-        margin-bottom: 8px;
-        min-width: auto;
+    .about-me-details {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .about-me-skills {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .about-me-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-left: 0;
+        padding-top: 25px;
     }
 
 }
