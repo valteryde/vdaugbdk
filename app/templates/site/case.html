@@ -3,28 +3,28 @@
 {% block title %}Case - {{ project.body.projecttitle }}{% endblock %} 
 
 {% block head %}
-<style>
-	body {
-		background: black;
-	}
-</style>
-
 <link rel="stylesheet" href="{{ url_for('static', filename='case.css') }}" />
-
 {% endblock %} 
 
 {% block content %}
 
 <section class="padded-section">
-	<!-- <h2 class="section-title">/case</h2> -->
-	<h1 class="project-title">{{ project.body.projecttitle }}</h1>
-	<p class="project-subtitle" style="margin-bottom: 10px">
+	<div class="project-title-header">
+		<h1 class="project-title">{{ project.body.projecttitle }}</h1>
+
+		<!-- Add navbar -->
+		<a class="navbar-link" href="/">Home</a>
+		<a class="navbar-link" href="/projects">Projects</a>
+		<a class="navbar-link" href="/about">About</a>
+
+	</div>
+	<p class="project-subtitle">
 		{{ project.body.projectsubtitle|safe }}
 	</p>
 
      <div class="techstack-container">
 		{% for tech in project.body.techstack %}
-		<img src="/static/{{ project.head.folder }}/{{ tech.image }}" style="opacity:.9" />
+		<img src="/static/{{ project.head.folder }}/{{ tech.image }}" alt="{{ tech.name }}" />
 		{% endfor %}
 	</div>
 
@@ -54,7 +54,7 @@
                     {% if item.features %}
 					<ul class="timeline-features">
 						{% for feature in item.features %}
-						<li><i class="fa {{ feature.icon }}" aria-hidden="true"></i> {{ feature.text }}</li>
+						<li><i class="ph ph-{{ feature.icon }}" aria-hidden="true"></i> {{ feature.text }}</li>
 						{% endfor %}
 					</ul>
                     {% endif %}
@@ -67,8 +67,7 @@
 </section>
 
 <section id="card-section">
-	<!-- <h2 class="archive-title">Project Screenshots</h2> -->
-	<h2 class="section-title" style="margin-bottom: 30px; margin-top: 20px">/{{ project.body.cardstitle }}</h2>
+	<h2 class="section-title">{{ project.body.cardstitle }}</h2>
 
 	<div class="archive-grid">
 		{% for card in project.body.cards %}
@@ -79,21 +78,12 @@
 			data-description="{{ card.longdescription }}"
 			data-keyfeatures="{{ card.keyfeatures | join(', ') }}"
 		>
-			<!-- Add a dual canvas -->
-			<div class="canvas-container card-dual-canvas">
-				<canvas class="compute-canvas" width="500" height="200"></canvas>
-				<canvas class="render-canvas" width="1000" height="400"></canvas>
-			</div>
-
 			<div class="card-content">
 				<div class="card-header">
-					<!-- <span class="card-id">DFDS-001</span> -->
 					<span class="card-classification">{{ card.category }}</span>
 				</div>
 				<div class="card-preview">
-					<img
-						src="/static/{{ project.head.folder }}/{{ card.image }}"
-					/>
+					<img src="/static/{{ project.head.folder }}/{{ card.image }}" alt="{{ card.title }}" />
 				</div>
 				<div class="card-footer">
 					<h3>{{ card.title }}</h3>
@@ -108,11 +98,10 @@
 	<div id="archive-modal" class="modal">
 		<div class="modal-content">
 			<div class="modal-header">
-				<span class="modal-close">×</span>
 				<div class="modal-info">
-					<!-- <span id="modal-id" class="modal-id"></span> -->
 					<span id="modal-classification" class="modal-classification"></span>
 				</div>
+				<span class="modal-close">×</span>
 			</div>
 			<div class="modal-body">
 				<div class="modal-image-container">
@@ -122,9 +111,6 @@
 					<h2 id="modal-title"></h2>
 					<p id="modal-description"></p>
 					<div class="modal-meta">
-						<span class="meta-item">Category: <span id="modal-security"></span></span>
-
-						<!-- Key features -->
 						<ul class="modal-keyfeatures"></ul>
 					</div>
 				</div>
@@ -134,37 +120,12 @@
 </section>
 
 <script>
-	const allCardDualCanvas = document.querySelectorAll(".card-dual-canvas");
-
-	var c = 0;
-
-	var fullWindow = [-5, 5, -10, 10];
-	var canvasLength = allCardDualCanvas.length;
-
-	allCardDualCanvas.forEach((dualCanvas) => {
-		c++;
-
-		var window = [
-			(fullWindow[0] * c) / canvasLength,
-			(fullWindow[1] * (c + 1)) / canvasLength,
-			(fullWindow[2] * c) / canvasLength,
-			(fullWindow[3] * (c + 1)) / canvasLength,
-		];
-
-		drawDualCanvas(dualCanvas, f, window, zValues, -1, 1, colorgradient_dark_cream);
-	});
-</script>
-
-<script></script>
-<script>
 	// Archive Modal Functionality
 	const modal = document.getElementById("archive-modal");
 	const modalImage = document.getElementById("modal-image");
 	const modalTitle = document.getElementById("modal-title");
 	const modalDescription = document.getElementById("modal-description");
-	const modalId = document.getElementById("modal-id");
 	const modalClassification = document.getElementById("modal-classification");
-	const modalSecurity = document.getElementById("modal-security");
 	const modalClose = document.querySelector(".modal-close");
 
 	// Add click event to all archive cards
@@ -173,7 +134,6 @@
 			const image = this.dataset.image;
 			const title = this.dataset.title;
 			const description = this.dataset.description;
-			// const id = this.querySelector('.card-id').textContent;
 			const classification = this.querySelector(".card-classification").textContent;
 
 			modalImage.src = image;
@@ -263,7 +223,7 @@
 			// [-0.5287341651581493, 0.1],
 			[-0.894512332237768, 0.1],
 		];
-		drawDualCanvas(dualCanvas, g, [-2, 2, -2, 2], zValues, -2.5, 2.5, {{  project.head.colors|tojson }} );
+		drawDualCanvas(dualCanvas, g, [-2, 2, -2, 2], zValues, -2.5, 2.5, colorgradient_accent);
 	});
 </script>
 

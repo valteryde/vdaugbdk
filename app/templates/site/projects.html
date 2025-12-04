@@ -10,7 +10,12 @@
 
 {% block content %}
 
-<h1 class="m-left" style="margin-top:50px;">My projects</h1>
+<div style="display:flex;flex-direction: row;margin-right:20px;">
+    <h1 class="m-left" style="margin-top:50px;">My projects</h1>
+    <a href="/" class="navbar-link" style="margin-top:60px;">Home</a>
+    <a href="/projects" class="navbar-link" style="margin-top:60px;">Projects</a>
+    <a href="/about" class="navbar-link" style="margin-top:60px;">About</a>
+</div>
 
 {% include 'index/projects.html' %}
 

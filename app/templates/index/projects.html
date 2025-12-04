@@ -1,95 +1,104 @@
 <section id="projects">
 
-    <h2 class="section-title">/my digital projects</h2>
+    <h2 class="section-title">Projects</h2>
 
-    <div class="projects-wrapper">
+    <!-- Featured Project -->
+    <div class="featured-project">
+        <div class="featured-left">
+            <span class="project-number">01</span>
+            <h3 class="featured-title">Kaxe</h3>
+            <p class="featured-description">Python graphing library for beautiful, simple visualizations. Clean API, publication-ready output.</p>
+            <a class="featured-link" href="https://kaxe.readthedocs.io/" target="_blank">View Documentation →</a>
+        </div>
+        <div class="featured-right">
+            <div class="featured-content">
+                <div class="featured-features">
+                    <div class="feature-item">
+                        <i class="ph ph-compass feature-icon"></i>
+                        <span class="feature-text">Polar & Cartesian</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="ph ph-chart-line feature-icon"></i>
+                        <span class="feature-text">Multiple plot types</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="ph ph-text-aa feature-icon"></i>
+                        <span class="feature-text">LaTeX labels</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="ph ph-export feature-icon"></i>
+                        <span class="feature-text">PNG & SVG export</span>
+                    </div>
+                </div>
+                <div class="featured-code">
+                    <pre><code class="language-python">import kaxe
 
-        <div class="projects-column">
-
-        <div class="project">
-
-            <code>
-                <img class="project-logo" src="{{ url_for('static', filename='kaxe/logo.png') }}" alt="Kaxe logo">
-                <h2 class="project-title">Kaxe <a class="inline-title-link" href="https://kaxe.readthedocs.io/" target="_blank"> <i class="fa-solid fa-book"></i> Visit the docs</a> </h2>
-                <p>Beautiful graphs out of the box with beautiful <i>simple</i> code</p>
-                <p>Ready for your scientific papers; no hassle, just results.</p>
-            </code>
-
-<pre>
-<code class="language-python">
-import kaxe
 plt = kaxe.Plot()
-plt.add(kaxe.Function(lambda x: x**2 - 2))
-plt.show()
-</code>
-</pre> 
-
-            <div class="project-images">
-
-                <img src="{{ url_for('static', filename='kaxe/images/boxed.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
-                <img src="{{ url_for('static', filename='kaxe/images/light.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
-                <img src="{{ url_for('static', filename='kaxe/images/noise.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
-                <img src="{{ url_for('static', filename='kaxe/images/polar.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
-
+plt.add(kaxe.Function(lambda x: x**2))
+plt.save("graph.png")</code></pre>
+                </div>
+                <div class="featured-tech">
+                    <span>Python</span>
+                    <span>Pillow</span>
+                    <span>NumPy</span>
+                </div>
             </div>
+        </div>
+    </div>
 
+    <div class="projects-grid">
+
+        <div class="project">
+            <span class="project-number">02</span>
+            <!-- <img class="project-logo" src="{{ url_for('static', filename='fondi/logo.png') }}" alt="fondi" style="max-width:100px;"> -->
+            <h3 class="project-title">fondi <a class="project-link" href="https://github.com/valteryde/fondi" target="_blank">code →</a></h3>
+            <p class="project-description">Lightweight LaTeX math renderer in pure Python.</p>
         </div>
 
         <div class="project">
-
-            <code>
-                <!-- <img class="project-logo" src="{{ url_for('static', filename='vdaugb/logo.png') }}" alt="vdaugb.dk logo"> -->
-                <h2 class="project-title">vdaugb.dk <a class="inline-title-link" href="https://vdaugb.dk" target="_blank"> <i class="fa-solid fa-globe"></i> Visit the site</a> </h2>
-                <p>This site! Built with Flask and vanilla HTML/CSS/JS</p>
-                <small>(May be a bit much to use flask for a <i>almost</i> static site)</small>
-            </code>
-
+            <span class="project-number">03</span>
+            <h3 class="project-title">broke <a class="project-link" href="https://broke.dk" target="_blank">website →</a></h3>
+            <p class="project-description">Lightweight open source ticket and error management system</p>
         </div>
 
-        </div>
+    </div>
 
-        <div class="projects-column">
-
-        <div class="project">
-
-            <code>
-                <img class="project-logo" src="{{ url_for('static', filename='apidfds/logo.png') }}" alt="DFDS logo">
-                <h2 class="project-title">Den Frie Digitale Skole <a class="inline-title-link" href="/case/apidfds"> <i class="fa-solid fa-magnifying-glass"></i> Visit the case</a> </h2>
-                <p>Fullstack administrative platform for digital education</p>
-                <p>Build with flask, celery and more</p>
-            </code>
-
-            <br>
-
-            <div class="project-images">
-                <img src="{{ url_for('static', filename='apidfds/images/admin.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
-                <img src="{{ url_for('static', filename='apidfds/images/absence.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
-                <img src="{{ url_for('static', filename='apidfds/images/sub.png') }}" alt="Kaxe example" onclick="openImageModal(this.src)">
+    <!-- Featured Project - Flipped -->
+    <div class="featured-project featured-flipped">
+        <div class="featured-left">
+            <div class="featured-content">
+                <div class="featured-features">
+                    <div class="feature-item">
+                        <i class="ph ph-users feature-icon"></i>
+                        <span class="feature-text">Student management</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="ph ph-calendar-check feature-icon"></i>
+                        <span class="feature-text">Attendance tracking</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="ph ph-lightning feature-icon"></i>
+                        <span class="feature-text">Async task queue</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="ph ph-squares-four feature-icon"></i>
+                        <span class="feature-text">Admin dashboard</span>
+                    </div>
+                </div>
+                <div class="featured-tech">
+                    <span>Flask</span>
+                    <span>Celery</span>
+                    <span>PostgreSQL</span>
+                    <span>Redis</span>
+                </div>
             </div>
-
         </div>
-        
-
-        <div class="project">
-
-            <code>
-                <img class="project-logo" src="{{ url_for('static', filename='fondi/logo.png') }}" alt="fondi logo" style="width:200px;">
-                <h2 class="project-title">fondi <a class="inline-title-link" href="https://github.com/valteryde/fondi" target="_blank"> <i class="fa-solid fa-code"></i> Visit the code</a> </h2>
-                <p>Helper tool for rendering LaTeX math equations written purely in Python</p>
-                <p>Spinning up a full latex process is redundant for simple equations. Fondi fixes this by providing a ultra <i>lightweight</i> alternative.</p>
-            </code>
-
-<pre>
-<code class="language-python">
-import fondi
-text = fondi.MathText("f(x) = x^2 - 2")
-text.image.save("equation.png")
-</code>
-</pre> 
+        <div class="featured-right">
+            <span class="project-number">04</span>
+            <h3 class="featured-title">Den Frie Digitale Skole</h3>
+            <p class="featured-description">Full-stack administrative platform for digital education. Built for managing students, tracking attendance, and streamlining school operations.</p>
+            <a class="featured-link" href="/case/apidfds">View Case Study →</a>
         </div>
-
-        </div>
-
     </div>
 
 </section>

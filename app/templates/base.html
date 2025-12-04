@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Valter Daugberg{% endblock %}</title>
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-+b1Q5vQ6wQw4kQw8x5wQ5vQ6wQw4kQw8x5wQ5vQ6wQw4kQw8x5wQ5vQ6wQw4kQw8x5wQ5vQ6wQw4kQw8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <link rel="stylesheet" href="{{ url_for('static', filename='master.css') }}">
 
@@ -22,6 +21,37 @@
     <script src="{{ url_for('static', filename='prism.js') }}"></script>
 
     <script>
+        // Warm earthy gradient for bright theme
+        var colorgradient_warm = [
+            [248, 245, 240],
+            [242, 230, 215],
+            [230, 200, 175],
+            [210, 165, 140],
+            [196, 106, 74],
+            [160, 80, 60],
+        ];
+
+        // Bold accent gradient - highly visible on bright backgrounds
+        var colorgradient_accent = [
+            [250, 249, 247],
+            [200, 195, 190],
+            [120, 115, 110],
+            [60, 58, 55],
+            [26, 26, 26],
+            [26, 26, 26],
+        ];
+
+        // Subtle version for backgrounds
+        var colorgradient_subtle = [
+            [248, 245, 240],
+            [245, 240, 232],
+            [240, 230, 218],
+            [235, 218, 200],
+            [228, 205, 185],
+            [220, 190, 168],
+        ];
+
+        // Legacy gradients kept for compatibility
         var colorgradient_orange = [
             [66, 30, 15],
             [25, 7, 26],
@@ -63,14 +93,14 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+    <div class="grid-overlay"></div>
     {% block body %}{% endblock %}
 
     <!-- Ultra thin -->
     <footer>
         <h2 class="section-title" style="padding-bottom:0;margin-bottom: 0;">/footer</h2>
-        <p class="footer-text">{{ currentYear }} Valter Daugberg. All rights reserved. Images may be subject to copyright. Source code for this site is licensed under <a href="https://www.wtfpl.net/" target="_blank">WTFPL</a><img src="{{ url_for('static', filename='WTFPL_logo.png') }}" alt="">.</p>
+        <p class="footer-text">{{ currentYear }} Valter Daugberg. All rights reserved. Images may be subject to copyright. Source code for this site is licensed under <a href="https://www.wtfpl.net/" target="_blank">WTFPL</a>.</p>
     </footer>
-
 
 </body>
 </html>

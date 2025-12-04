@@ -2,149 +2,92 @@
 
 {% block title %}Valter Daugberg{% endblock %}
 {% block head %}
-
-
 <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-
-
 {% endblock %}
 
 {% block body %}
 
-<div id="hero-section" style="z-index:99999999;background-color: black;">
+<div id="hero-section">
     
-    <div class="canvas-container" id="dual-canvas-hero" style="z-index:1">
-        <!-- Small canvas for computation (hidden) -->
-        <canvas class="compute-canvas" width="1000" height="400"></canvas>
+    <div class="hero-left">
+        <div class="canvas-container" id="dual-canvas-hero">
+            <canvas class="compute-canvas" width="700" height="700"></canvas>
+            <canvas class="render-canvas" width="2000" height="2000"></canvas>
+        </div>
         
-        <!-- Large canvas for display -->
-        <canvas class="render-canvas" style="z-index:1" width="2000" height="800"></canvas>
+        <script src="{{ url_for('static', filename='contour.js') }}"></script>
+        <script>
+            var f = (x, y) => {
+                const wave = Math.sin(3 * x) * Math.cos(3 * y);
+                const r = Math.sqrt(x * x + y * y);
+                const radial = Math.sin(4 * r) / (1 + 0.3 * r * r);
+                return wave + 0.7 * radial;
+            }
+
+            var frameCount = 0;
+            var fpsInterval, now, then, elapsed;
+
+            function animate(windowSize, zValues) {
+                if (frameCount > 600) return;
+                requestAnimationFrame(() => animate(windowSize, zValues));
+                now = Date.now();
+                elapsed = now - then;
+                if (elapsed > fpsInterval) {
+                    then = now - (elapsed % fpsInterval);
+                    zValues = zValues.map(([zValue, epsilon]) => {
+                        return [zValue + 0.002 * Math.sin(frameCount * 0.002), epsilon * frameCount * 0.0006 + 0.012];
+                    });
+                    drawDualCanvas(document.querySelector('#dual-canvas-hero'), f, windowSize, zValues, -1, 1, colorgradient_warm);
+                    frameCount++;
+                }
+            }
+
+            function startAnimating(fps, windowSize, zValues) {
+                fpsInterval = 1000 / fps;
+                then = Date.now();
+                animate(windowSize, zValues);
+            }
+
+            var zValues = [[1, 0.012], [0.5, 0.012], [0, 0.01], [-0.5, 0.008], [-1, 0.01]];
+            startAnimating(20, [-1, 1, -1, 1], zValues);
+        </script>
+        
+        <div class="hero-left-content">
+            <h1 id="hero-title">Valter<br>Daugberg</h1>
+            <p class="hero-tagline">Engineering student and software developer.</p>
+        </div>
     </div>
     
-    <script src="{{ url_for('static', filename='contour.js') }}"></script>
-
-    <script>
-
-        var f = (x, y) => {
-            const wave = Math.sin(3 * x) * Math.cos(3 * y);
-            const r = Math.sqrt(x * x + y * y);
-            const radial = Math.sin(4 * r) / (1 + 0.3 * r * r);
-            return wave + 0.7 * radial;
-        }
-
-        var frameCount = 0;
-        var fps, fpsInterval, startTime, now, then, elapsed;
-
-        function animate(windowSize, zValues) {
-            if (frameCount > 1010) {
-                document.getElementById("hero-subtitle-upper").style.opacity = 1;
-                return;
-            }
-
-            requestAnimationFrame(() => animate(windowSize, zValues));
-
-            now = Date.now();
-            elapsed = now - then;
-
-            if (elapsed > fpsInterval) {
-                then = now - (elapsed % fpsInterval);
-
-                zValues = zValues.map(([zValue, epsilon]) => {
-                    return [zValue + 0.005 * Math.sin(frameCount * 0.005), epsilon * frameCount * 0.001 + 0.02];
-                });
-
-                drawDualCanvas(document.querySelector('#dual-canvas-hero'), f, windowSize, zValues, -1, 1, colorgradient_orange);
-
-                frameCount++;
-
-            }
-        }
-
-        function startAnimating(fps, windowSize, zValues) {
-            fpsInterval = 1000 / fps;
-            then = Date.now();
-            startTime = then;
-            animate(windowSize, zValues);
-        }
-
-        var zValues = [
-            [1, 0.02],
-            [0.5, 0.02],
-            [0, 0.015],
-            [-0.5, 0.01],
-            [-1, 0.015],
-        ];
-
-        startAnimating(30, [-1, 1, -0.75, 0.75], zValues); // Higher FPS now possible
-    </script>
-
-    <!-- Hero title positioned independently to appear over background -->
-    <h1 id="hero-title">vdaugb&nbsp;</h1>
-    
-    <!-- Subtitle positioned independently to appear behind background -->
-    <div class="hero-subtitle"> <i class="fa-brands fa-github-alt"></i><span style="height:min-content;margin-top:-2px">valter daugberg</span></div>
-    
-    <div class="hero-subtitle"  id="hero-subtitle-upper" onclick="window.open('https://github.com/valteryde', '_blank')"> <i class="fa-brands fa-github-alt"></i><span style="height:min-content;margin-top:-2px">valter daugberg</span></div>
-
-    <div class="scroll-arrow" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
-        <i class="fa-solid fa-chevron-down"></i>
+    <div class="hero-right">
+        <div class="hero-info">
+            <p>MSc Electro-Mechanical Engineering</p>
+            <p>Aalborg University</p>
+        </div>
+        <div class="hero-links">
+            <a href="/about">About Me</a>
+            <a href="https://github.com/valteryde" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/vdaugb/" target="_blank">LinkedIn</a>
+            <a href="mailto:valteryde@hotmail.com">Email</a>
+        </div>
     </div>
 
 </div>
 
 {% include 'index/projects.html' %}
 
-<section id="about-me">
-
-<h2 class="section-title" style="padding-top:30px;">/about me</h2>
-
-<div class="about-me-content">
-    <div class="about-me-card">
-        <div class="about-me-header">
-            <h3 class="name">Valter Daugberg</h3>
-            <p class="tagline">Software Developer & Engineering Student</p>
-            <p class="location"><i class="fa-solid fa-location-dot"></i> Aalborg, Denmark</p>
+<section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+        <div class="contact-left">
+            <p>Aalborg, Denmark</p>
+            <p>Open for opportunities</p>
         </div>
-        
-        <div class="about-me-body">
-            <div class="about-me-details">
-                <div class="detail-item">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span>BSc Mechanical Engineering</span>
-                </div>
-                <div class="detail-item highlight">
-                    <i class="fa-solid fa-book-open"></i>
-                    <span>MSc Electro-Mechanical Engineering</span>
-                    <span class="current-badge">current</span>
-                </div>
-            </div>
-            
-            <div class="about-me-skills">
-                <div class="skill-row">
-                    <span class="skill-label">Languages</span>
-                    <span class="skill-list">Python, C, MATLAB, JS, SQL, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span></span>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-label">Tools</span>
-                    <span class="skill-list">Flask, Git, Linux, PostgreSQL, Redis</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="about-me-footer">
-            <a href="/about" class="learn-more-btn">
-                Learn more <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            
-            <div class="social-links">
-                <a href="https://github.com/valteryde" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/vdaugb/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:valteryde@hotmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-            </div>
+        <div class="contact-right">
+            <a href="https://github.com/valteryde" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/vdaugb/" target="_blank">LinkedIn</a>
+            <a href="mailto:valteryde@hotmail.com">valteryde@hotmail.com</a>
         </div>
     </div>
-</div>
-
 </section>
 
 <script src="{{ url_for('static', filename='imagemodal.js') }}"></script>

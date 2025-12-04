@@ -20,7 +20,7 @@
         "projectsubtitle": "My background, experience, and skills.<i> I have worked at the following places:</i>",
 
         "techstack": [
-            {"name": "AAU", "image": "work/aau_logo.png"},
+            {"name": "AAU", "image": "work/aau_dark.png"},
             {"name": "Den frie digitale skole", "image": "apidfds/logo.png"},
             {"name": "Toptutor", "image": "work/toptutor.svg"},
             {"name": "GoTutor", "image": "work/gotutor.png"}
